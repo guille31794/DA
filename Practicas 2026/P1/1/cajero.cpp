@@ -36,8 +36,12 @@ fajos cajero::reintegrar(const fajos& caja, unsigned int cantidad)
         fajo f = c.front();
         std::pop_heap(c.begin(), c.end());
         c.pop_back();
+        unsigned n_monedas = std::min(f.unidades(), cantidad / f.valor());
 
-        
+        if (n_monedas > 0) {
+            cambio.push_back(fajo(f.valor(), n_monedas));
+            cantidad -= f.valor() * n_monedas;
+        }
     }
 
     return cambio;

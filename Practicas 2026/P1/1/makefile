@@ -4,20 +4,19 @@ LDFLAGS =
 LDLIBS = 
 
 EXE = cajero
-OBJS = main.o fajo.o cajero.o
+OBJS = fajo.o cajero.o main.o
+
+.PHONY: all clean
 
 all: $(EXE)
 
 $(EXE): $(OBJS)
 	$(CXX) -o $@ $^ $(LDFLAGS) $(LDLIBS)
 
-main.o: main.cpp cajero.hpp
-	$(CXX) $(CXXFLAGS) -c $<
-
+# Dependencias de cabeceras
 fajo.o: fajo.hpp
-	$(CXX) $(CXXFLAGS) -c $<
+cajero.o: cajero.hpp fajo.hpp
+main.o: cajero.hpp
 
-cajero.o: cajero.cpp cajero.hpp
-	$(CXX) $(CXXFLAGS) -c $<
-clean: 
-	rm -f $(OBJS) $(EXE)
+clean:
+	rm -f $(OBJS) $(EXE) *.gch cajero

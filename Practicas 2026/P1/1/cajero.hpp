@@ -1,6 +1,8 @@
 /*
     P1 - E1
 */
+#ifndef CAJERO_HPP
+#define CAJERO_HPP
 
 #include "fajo.hpp"
 
@@ -16,3 +18,5 @@ private:
 private:
     fajos caja;
 };
+
+#endif
