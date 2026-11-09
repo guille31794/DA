@@ -1,0 +1,31 @@
+# Executables / Binaries
+*.exe
+*.out
+*.app
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.elf
+
+# Build output / Targets
+programa
+build/
+bin/
+obj/
+dist/
+
+# IDE & Editor specific
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Logs & Temporary files
+*.log
+*.tmp
+*.temp
